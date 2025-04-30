@@ -1,6 +1,5 @@
 # app/llm_providers/base.py
 from abc import ABC, abstractmethod
-from enum import Enum
 
 class LLMProvider(ABC):
     @abstractmethod

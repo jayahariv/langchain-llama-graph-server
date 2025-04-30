@@ -1,8 +1,5 @@
-import time
-
 from flask import Flask, request, jsonify, render_template_string
 from dotenv import load_dotenv
-from threading import Thread
 
 load_dotenv()
 

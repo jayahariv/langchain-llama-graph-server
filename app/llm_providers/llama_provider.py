@@ -1,11 +1,8 @@
 import os
 from threading import Thread
-import torch
 import transformers
-import time
 
 from .base import LLMProvider
-from transformers import AutoModelForCausalLM, AutoTokenizer
 from huggingface_hub import login
 
 model_id = "meta-llama/Llama-3.2-1B"

@@ -1,0 +1,11 @@
+langchain
+flask
+llama-index
+requests
+openai
+python-dotenv
+accelerate
+transformers
+torch
+gunicorn
+huggingface_hub[hf_xetra]

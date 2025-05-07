@@ -117,7 +117,7 @@ curl -X POST http://localhost:8000/loading-status -H "Content-Type: application/
 
 **Request**:
 ```bash
-curl -X POST http://localhost:8000/query -H "Content-Type: application/json" -d '{"prompt": "Once upon a time..."}'
+curl -X POST http://localhost:8000/query -H "Content-Type: application/json" -d '{"provider": "openai_provider", "prompt": "Once upon a time..."}'
 ```
 
 **Response**:
@@ -135,16 +135,3 @@ curl -X POST http://localhost:8000/query -H "Content-Type: application/json" -d 
 ## Contributing
 
 Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-```
-
-### Notes
-
-- Replace any placeholders such as repository URLs or usernames with your actual information.
-- Adjust the content as necessary to fit the specific features and setup of your application.
-- If you have any specific environment variables or configurations, make sure to document those in the README as well.
-
-Feel free to modify this README to better fit your needs or to add additional sections if necessary!

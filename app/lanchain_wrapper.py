@@ -1,16 +1,28 @@
-from langchain.llms.base import LLM
-from .llm_providers.openai_provider import OpenAIProvider
+from .llm_providers.base import LLMProvider
 
-class CustomLangChainLLM(LLM):
-    def __init__(self, provider: OpenAIProvider):
-        super().__init__()  # Call the parent class's constructor
-        self._provider = provider  # Store the provider
+class CustomLangChainLLM:
+    def __init__(self, provider: LLMProvider):
+        super().__init__()
+        self._provider = provider
+        self.state_graph = None
     
-    def _call(self, prompt: str, stop=None) -> str:
-        return self.invoke(prompt)
-
-    def invoke(self, prompt: str, stop=None) -> str:
-        return self._provider.query(prompt)
+    def load_model(self):
+        self.provider.load_model()
+        self.state_graph = self.build_state_graph()
+    
+    def build_state_graph(self):
+        # Build and return the state graph
+        pass
+    
+    def query(self, prompt):
+        
+        # Use the state graph to process the prompt
+        
+        response = self.provider.query(prompt)
+        
+        # Process response through the state graph
+        
+        return response
 
     @property
     def _identifying_params(self):

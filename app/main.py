@@ -49,8 +49,7 @@ def query():
     
     # customise here... for any further chaining and fine tuning. 
 
-    result = llm(prompt)
-    
+    result = llm.query(prompt)
 
     print(f"Querying {provider_name} with prompt: {prompt}")
     print(f"Result: {result}")

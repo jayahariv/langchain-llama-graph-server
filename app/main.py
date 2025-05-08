@@ -40,18 +40,12 @@ def index():
 @app.route("/query", methods=["POST"])
 def query():
     data = request.json
-    provider_name = data.get("provider")
     prompt = data.get("prompt")
-    if provider_name not in providers:
-        return jsonify({"error": "Unknown provider"}), 400
-
-    llm = CustomLangChainLLM(provider=providers[provider_name])
     
-    # customise here... for any further chaining and fine tuning. 
-
+    llm = CustomLangChainLLM()
     result = llm.query(prompt)
 
-    print(f"Querying {provider_name} with prompt: {prompt}")
+    print(f"Querying with prompt: {prompt}")
     print(f"Result: {result}")
     return jsonify({"result": result})
 

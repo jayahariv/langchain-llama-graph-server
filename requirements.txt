@@ -1,4 +1,5 @@
 langchain
+langgraph
 flask
 llama-index
 requests

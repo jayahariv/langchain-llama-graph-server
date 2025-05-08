@@ -2,15 +2,13 @@ import os
 import torch
 import transformers
 from threading import Thread
-from transformers import AutoModelForCausalLM, pipeline
+from transformers import AutoModelForCausalLM
 
 from .base import LLMProvider
 from huggingface_hub import login
 from accelerate import disk_offload
 
-# model_id = "meta-llama/Llama-3.3-70B-Instruct"
 model_id = "meta-llama/Llama-3.2-1B-Instruct"
-# model_id = "distilgpt2"
 
 # Global variables to manage model loading state
 model_loading = False
@@ -83,5 +81,5 @@ class LlamaProvider(LLMProvider):
     
     def query(self, prompt: str, **kwargs) -> dict:
         global pipe
-        result = pipe(prompt, **kwargs)
+        result = pipe(prompt, max_new_tokens=2048, **kwargs)
         return result[0]['generated_text']
